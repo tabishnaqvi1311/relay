@@ -1,16 +1,17 @@
 import Link from 'next/link'
-import '@/styles/globals.css'
+import { navItems } from '@/constants/constant';
+
 const Navbar = () => {
     return (
-        <nav className='bg-white text-black'>
-            <ul>
-                <li>RELAY</li>
-                <li>About</li>
-                <li>Chat</li>
+        <nav className='bg-white text-black flex flex-row justify-between items-center'>
+            <ul className='flex flex-row items-center'>
+                {navItems.map((item) => (
+                    <li className={`p-4 mx-2 ${item.size === '2xl'?'text-2xl':'text-lg'}`}>{item.content}</li>
+                ))}
             </ul>
             <ul>
-                <button>Signup</button>
-                <button>Login</button>
+                <button className='border border-black px-4 py-2 rounded-full mx-6 bg-violet-400 text-white'>Signup</button>
+                <button className='border px-4 py-2 rounded-full mx-2'>Login</button>
             </ul>
         </nav>
     )
